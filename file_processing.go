@@ -81,7 +81,7 @@ type Accident struct {
 
 var accidents []Accident
 
-func main() {
+func file_processing() {
 	CSVfilenames := []string{
 		"./data/2021/January2021.csv", "./data/2021/February2021.csv", "./data/2021/March2021.csv",
 		"./data/2021/April2021.csv", "./data/2021/May2021.csv", "./data/2021/June2021.csv",

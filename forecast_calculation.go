@@ -9,20 +9,6 @@ import (
 
 const days = 365 * 2
 
-type Accident struct {
-	Number       int     `json:"Number"`
-	Date         string  `json:"Date"`
-	District     string  `json:"District"`
-	DTPnumber    string  `json:"DTPnumber"`
-	DTPform      string  `json:"DTPform"`
-	Road         string  `json:"Road"`
-	Address      string  `json:"Address"`
-	Deapths      float64 `json:"Deapths"`
-	Wounded      float64 `json:"Wounded"`
-	CARScount    float64 `json:"CARScount"`
-	MEMBERScount float64 `json:"MEMBERScount"`
-}
-
 type District struct {
 	Name         string
 	AccidentRate float64
@@ -129,7 +115,7 @@ func main() {
 	json.Unmarshal(byteResult, &accidents)
 
 	var flag int
-	fmt.Printf("1 - вывести список возможных районов\n2 - выбор района для прогнозирования\nФлаг: ")
+	fmt.Printf("1 - вывести список возможных районов\n2 - выбор района для прогнозирования\n3 - обновить данные\nФлаг: ")
 	fmt.Scan(&flag)
 
 	switch flag {
@@ -138,7 +124,7 @@ func main() {
 	case 2:
 		calculation(accidents)
 	case 3:
-		districts_calculate_accidentrate(accidents, 0)
+		file_processing()
 	default:
 		fmt.Println("Неккоректное значение флага")
 	}
