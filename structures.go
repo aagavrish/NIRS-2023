@@ -19,5 +19,13 @@ type District struct {
 	AccidentRate float64
 }
 
+type Config struct {
+	Days           int    `json:"Days"`
+	JSONfilename   string `json:"JSONfilename"`
+	Interval       int    `json:"Interval"`
+	LastUpdateDate string `json:"LastUpdateDate"`
+}
+
+// var config Config
 var districts []District
 var accidents []Accident
