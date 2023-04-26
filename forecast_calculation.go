@@ -9,13 +9,6 @@ import (
 
 const days = 365 * 2
 
-type District struct {
-	Name         string
-	AccidentRate float64
-}
-
-var districts []District
-
 func districts_add_name(accidents []Accident) {
 	var district District
 	var district_names []string = district_export(accidents, 1)
