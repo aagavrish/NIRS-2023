@@ -125,6 +125,8 @@ func main() {
 		calculation(accidents)
 	case 3:
 		file_processing()
+	case 4:
+		districts_calculate_accidentrate(accidents, 0)
 	default:
 		fmt.Println("Неккоректное значение флага")
 	}
