@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 )
 
@@ -103,7 +103,7 @@ func main() {
 	}
 	defer JSONfile.Close()
 
-	byteResult, _ := ioutil.ReadAll(JSONfile)
+	byteResult, _ := io.ReadAll(JSONfile)
 	var accidents []Accident
 	json.Unmarshal(byteResult, &accidents)
 
