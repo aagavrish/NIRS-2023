@@ -70,18 +70,18 @@ func file_processing() {
 	DataPathName := "./data/"
 	var CSVfilenames []string
 
-	files, err := os.ReadDir(DataPathName)
+	yearPaths, err := os.ReadDir(DataPathName)
 	if err != nil {
 		panic(err)
 	}
 
-	for _, file := range files {
-		curfile, err := os.ReadDir(DataPathName + file.Name())
+	for _, yearPath := range yearPaths {
+		monthDataFiles, err := os.ReadDir(DataPathName + yearPath.Name())
 		if err != nil {
 			break
 		}
-		for _, curcurfile := range curfile {
-			CSVfilenames = append(CSVfilenames, DataPathName+file.Name()+"/"+curcurfile.Name())
+		for _, monthDataFile := range monthDataFiles {
+			CSVfilenames = append(CSVfilenames, DataPathName+yearPath.Name()+"/"+monthDataFile.Name())
 		}
 	}
 
