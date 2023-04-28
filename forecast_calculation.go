@@ -97,6 +97,7 @@ func calculation(accidents []Accident) {
 }
 
 func main() {
+	file_processing()
 	JSONfile, err := os.Open("./data/data.json")
 	if err != nil {
 		panic(err)

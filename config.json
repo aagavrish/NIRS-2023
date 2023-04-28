@@ -2,5 +2,6 @@
     "Days": 730,
     "JSONfilename": "data.json",
     "Interval": 10,
-    "LastUpdateDate": ""
+    "LastUpdateDate": "",
+    "DataPathName": "./data"
 }

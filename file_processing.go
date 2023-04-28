@@ -66,18 +66,25 @@ func parseJSON(filename string) {
 }
 
 func file_processing() {
-	CSVfilenames := []string{
-		"./data/2021/January2021.csv", "./data/2021/February2021.csv", "./data/2021/March2021.csv",
-		"./data/2021/April2021.csv", "./data/2021/May2021.csv", "./data/2021/June2021.csv",
-		"./data/2021/July2021.csv", "./data/2021/August2021.csv", "./data/2021/September2021.csv",
-		"./data/2021/October2021.csv", "./data/2021/November2021.csv", "./data/2021/December2021.csv",
+	JSONfilename := "./data/data.json"
+	DataPathName := "./data/"
+	var CSVfilenames []string
 
-		"./data/2022/January2022.csv", "./data/2022/February2022.csv", "./data/2022/March2022.csv",
-		"./data/2022/April2022.csv", "./data/2022/May2022.csv", "./data/2022/June2022.csv",
-		"./data/2022/July2022.csv", "./data/2022/August2022.csv", "./data/2022/September2022.csv",
-		"./data/2022/October2022.csv", "./data/2022/November2022.csv", "./data/2022/December2022.csv"}
-	jsonFilename := "./data/data.json"
+	files, err := os.ReadDir(DataPathName)
+	if err != nil {
+		panic(err)
+	}
+
+	for _, file := range files {
+		curfile, err := os.ReadDir(DataPathName + file.Name())
+		if err != nil {
+			break
+		}
+		for _, curcurfile := range curfile {
+			CSVfilenames = append(CSVfilenames, DataPathName+file.Name()+"/"+curcurfile.Name())
+		}
+	}
 
 	merging_files(CSVfilenames)
-	parseJSON(jsonFilename)
+	parseJSON(JSONfilename)
 }
