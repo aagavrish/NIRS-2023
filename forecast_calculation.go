@@ -109,7 +109,7 @@ func main() {
 	json.Unmarshal(byteResult, &accidents)
 
 	var flag int
-	fmt.Printf("1 - вывести список возможных районов\n2 - выбор района для прогнозирования\n3 - обновить данные\nФлаг: ")
+	fmt.Printf("1 - вывести список возможных районов\n2 - выбор района для прогнозирования\nФлаг: ")
 	fmt.Scan(&flag)
 
 	switch flag {
@@ -117,8 +117,6 @@ func main() {
 		district_export(accidents, 0)
 	case 2:
 		calculation(accidents)
-	case 3:
-		file_processing()
 	case 4:
 		districts_calculate_accidentrate(accidents, 0)
 	default:
