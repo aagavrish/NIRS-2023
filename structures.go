@@ -20,12 +20,13 @@ type District struct {
 }
 
 type Config struct {
-	Days           int    `json:"Days"`
-	JSONfilename   string `json:"JSONfilename"`
-	Interval       int    `json:"Interval"`
-	LastUpdateDate string `json:"LastUpdateDate"`
+	Days           float64 `json:"Days"`
+	JSONfilename   string  `json:"JSONfilename"`
+	Interval       float64 `json:"Interval"`
+	LastUpdateDate string  `json:"LastUpdateDate"`
+	DataPathName   string  `json:"DataPathName"`
 }
 
-// var config Config
+var config Config
 var districts []District
 var accidents []Accident

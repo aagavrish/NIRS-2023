@@ -7,8 +7,6 @@ import (
 	"os"
 )
 
-const days = 365 * 2
-
 func districts_add_name(accidents []Accident) {
 	var district District
 	var district_names []string = district_export(accidents, 1)
@@ -29,7 +27,7 @@ func districts_calculate_accidentrate(accidents []Accident, flag int) float64 {
 				carsCount += accidents[j].CARScount
 			}
 		}
-		districts[i].AccidentRate = float64(int(carsCount/days*100*100)) / 100
+		districts[i].AccidentRate = float64(int(carsCount/config.Days*100*100)) / 100
 		if flag == 0 {
 			fmt.Printf("%d. %s: %.2f\n", i, districts[i].Name, districts[i].AccidentRate)
 		}
@@ -85,11 +83,11 @@ func calculation(accidents []Accident) {
 				}
 			}
 			fmt.Printf("Итого %d автомобилей попали в ДТП\n\n", int(count))
-			if districts[i].AccidentRate <= averageRate+10 && districts[i].AccidentRate >= averageRate-10 {
+			if districts[i].AccidentRate <= averageRate+config.Interval && districts[i].AccidentRate >= averageRate-config.Interval {
 				fmt.Printf("В районе '%s' СРЕДНЕЕ значение аварийности: %.2f%% (среднее значение: %.2f%%)\n", districts[i].Name, districts[i].AccidentRate, averageRate)
-			} else if districts[i].AccidentRate > averageRate+10 {
+			} else if districts[i].AccidentRate > averageRate+config.Interval {
 				fmt.Printf("В районе '%s' ВЫСОКОЕ значение аварийности: %.2f%% (среднее значение: %.2f%%)\n", districts[i].Name, districts[i].AccidentRate, averageRate)
-			} else if districts[i].AccidentRate < averageRate-10 {
+			} else if districts[i].AccidentRate < averageRate-config.Interval {
 				fmt.Printf("В районе '%s' НИЗКОЕ значение аварийности: %.2f%% (среднее значение: %.2f%%)\n", districts[i].Name, districts[i].AccidentRate, averageRate)
 			}
 		}
@@ -97,15 +95,15 @@ func calculation(accidents []Accident) {
 }
 
 func main() {
+	uncofig()
 	file_processing()
-	JSONfile, err := os.Open("./data/data.json")
+	JSONfile, err := os.Open(config.DataPathName + "/" + config.JSONfilename)
 	if err != nil {
 		panic(err)
 	}
 	defer JSONfile.Close()
 
 	byteResult, _ := io.ReadAll(JSONfile)
-	var accidents []Accident
 	json.Unmarshal(byteResult, &accidents)
 
 	var flag int

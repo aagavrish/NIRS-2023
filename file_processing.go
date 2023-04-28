@@ -66,8 +66,8 @@ func parseJSON(filename string) {
 }
 
 func file_processing() {
-	JSONfilename := "./data/data.json"
-	DataPathName := "./data/"
+	JSONfilename := config.DataPathName + "/" + config.JSONfilename
+	DataPathName := config.DataPathName + "/"
 	var CSVfilenames []string
 
 	yearPaths, err := os.ReadDir(DataPathName)
