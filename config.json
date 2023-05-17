@@ -1,7 +1,8 @@
 {
-    "Days": 730,
-    "JSONfilename": "data.json",
-    "Interval": 10,
-    "LastUpdateDate": "28.04.2023",
-    "DataPathName": "./data"
+ "Days": 1826,
+ "JSONfilename": "data.json",
+ "Interval": 10,
+ "LastUpdateDate": "05.18.2023",
+ "DataPathName": "./data",
+ "InputAccuracy": 0.9
 }

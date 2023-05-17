@@ -1,0 +1,586 @@
+[
+ {
+  "Name": "Тропарево-Никулино",
+  "AccidentRate": 43.15
+ },
+ {
+  "Name": "Ховрино",
+  "AccidentRate": 21.85
+ },
+ {
+  "Name": "Молжаниновский",
+  "AccidentRate": 19.44
+ },
+ {
+  "Name": "Западное Дегунино",
+  "AccidentRate": 29.24
+ },
+ {
+  "Name": "Люблино",
+  "AccidentRate": 66.31
+ },
+ {
+  "Name": "Марьино",
+  "AccidentRate": 52.13
+ },
+ {
+  "Name": "Зябликово",
+  "AccidentRate": 18.29
+ },
+ {
+  "Name": "Мещанский",
+  "AccidentRate": 26.83
+ },
+ {
+  "Name": "Вешняки",
+  "AccidentRate": 36.08
+ },
+ {
+  "Name": "Тверской",
+  "AccidentRate": 46.33
+ },
+ {
+  "Name": "Арбат",
+  "AccidentRate": 19.38
+ },
+ {
+  "Name": "Чертаново Южное",
+  "AccidentRate": 43.42
+ },
+ {
+  "Name": "Ломоносовский",
+  "AccidentRate": 14.4
+ },
+ {
+  "Name": "Обручевский",
+  "AccidentRate": 22.34
+ },
+ {
+  "Name": "Куркино",
+  "AccidentRate": 13.25
+ },
+ {
+  "Name": "Якиманка",
+  "AccidentRate": 20.2
+ },
+ {
+  "Name": "Беговой",
+  "AccidentRate": 30.01
+ },
+ {
+  "Name": "Гагаринский",
+  "AccidentRate": 28.97
+ },
+ {
+  "Name": "Чертаново Центральное",
+  "AccidentRate": 25.13
+ },
+ {
+  "Name": "Печатники",
+  "AccidentRate": 34.55
+ },
+ {
+  "Name": "Кунцево",
+  "AccidentRate": 48.13
+ },
+ {
+  "Name": "Южнопортовый",
+  "AccidentRate": 27.6
+ },
+ {
+  "Name": "Нагатинский затон",
+  "AccidentRate": 18.4
+ },
+ {
+  "Name": "Савеловский",
+  "AccidentRate": 24.75
+ },
+ {
+  "Name": "Марушкинское",
+  "AccidentRate": 18.29
+ },
+ {
+  "Name": "Донской",
+  "AccidentRate": 39.21
+ },
+ {
+  "Name": "Внуково",
+  "AccidentRate": 9.03
+ },
+ {
+  "Name": "Хамовники",
+  "AccidentRate": 40.47
+ },
+ {
+  "Name": "Нагатино-Садовники",
+  "AccidentRate": 36.52
+ },
+ {
+  "Name": "Лианозово",
+  "AccidentRate": 38.88
+ },
+ {
+  "Name": "Хорошево-Мневники",
+  "AccidentRate": 49.5
+ },
+ {
+  "Name": "Гольяново",
+  "AccidentRate": 48.41
+ },
+ {
+  "Name": "Щаповское поселение",
+  "AccidentRate": 15.99
+ },
+ {
+  "Name": "Дмитровский",
+  "AccidentRate": 28.86
+ },
+ {
+  "Name": "Орехово-Борисово Северное",
+  "AccidentRate": 26.39
+ },
+ {
+  "Name": "Коптево",
+  "AccidentRate": 20.09
+ },
+ {
+  "Name": "Покровское-Стрешнево",
+  "AccidentRate": 23.38
+ },
+ {
+  "Name": "Щукино",
+  "AccidentRate": 32.47
+ },
+ {
+  "Name": "Северный",
+  "AccidentRate": 19.16
+ },
+ {
+  "Name": "Теплый Стан",
+  "AccidentRate": 40.69
+ },
+ {
+  "Name": "Отрадное",
+  "AccidentRate": 38.93
+ },
+ {
+  "Name": "Десёновское",
+  "AccidentRate": 11.82
+ },
+ {
+  "Name": "Соколиная гора",
+  "AccidentRate": 35.37
+ },
+ {
+  "Name": "Марьина роща",
+  "AccidentRate": 25.57
+ },
+ {
+  "Name": "Нижегородский",
+  "AccidentRate": 26.45
+ },
+ {
+  "Name": "Крюково",
+  "AccidentRate": 26.56
+ },
+ {
+  "Name": "Ярославский",
+  "AccidentRate": 36.08
+ },
+ {
+  "Name": "Замоскворечье",
+  "AccidentRate": 19.16
+ },
+ {
+  "Name": "Южное Бутово",
+  "AccidentRate": 55.69
+ },
+ {
+  "Name": "Сосенское",
+  "AccidentRate": 41.67
+ },
+ {
+  "Name": "Новогиреево",
+  "AccidentRate": 21.08
+ },
+ {
+  "Name": "Хорошевский",
+  "AccidentRate": 36.69
+ },
+ {
+  "Name": "Фили-Давыдково",
+  "AccidentRate": 33.24
+ },
+ {
+  "Name": "Басманный",
+  "AccidentRate": 28.42
+ },
+ {
+  "Name": "Сокол",
+  "AccidentRate": 19.6
+ },
+ {
+  "Name": "Орехово-Борисово Южное",
+  "AccidentRate": 44.35
+ },
+ {
+  "Name": "Ясенево",
+  "AccidentRate": 60.62
+ },
+ {
+  "Name": "ГУ МВД 2 СП ДПС 2 бат.",
+  "AccidentRate": 69
+ },
+ {
+  "Name": "Войковский",
+  "AccidentRate": 21.46
+ },
+ {
+  "Name": "Ново-Переделкино",
+  "AccidentRate": 19.87
+ },
+ {
+  "Name": "Таганский",
+  "AccidentRate": 32.69
+ },
+ {
+  "Name": "Солнцево",
+  "AccidentRate": 24.15
+ },
+ {
+  "Name": "Восточное Дегунино",
+  "AccidentRate": 12.76
+ },
+ {
+  "Name": "Текстильщики",
+  "AccidentRate": 28.8
+ },
+ {
+  "Name": "Северное Медведково",
+  "AccidentRate": 38.33
+ },
+ {
+  "Name": "Головинский",
+  "AccidentRate": 25.95
+ },
+ {
+  "Name": "Бибирево",
+  "AccidentRate": 30.72
+ },
+ {
+  "Name": "Ивановское",
+  "AccidentRate": 43.15
+ },
+ {
+  "Name": "Перово",
+  "AccidentRate": 41.45
+ },
+ {
+  "Name": "Бирюлево Восточное",
+  "AccidentRate": 56.18
+ },
+ {
+  "Name": "Северное Тушино",
+  "AccidentRate": 42.66
+ },
+ {
+  "Name": "Зюзино",
+  "AccidentRate": 27.65
+ },
+ {
+  "Name": "Новофёдоровское поселение",
+  "AccidentRate": 6.95
+ },
+ {
+  "Name": "Ростокино",
+  "AccidentRate": 9.85
+ },
+ {
+  "Name": "Преображенское",
+  "AccidentRate": 23.11
+ },
+ {
+  "Name": "Котловка",
+  "AccidentRate": 16.7
+ },
+ {
+  "Name": "Аэропорт",
+  "AccidentRate": 25.84
+ },
+ {
+  "Name": "Крылатское",
+  "AccidentRate": 21.41
+ },
+ {
+  "Name": "Лефортово",
+  "AccidentRate": 41.18
+ },
+ {
+  "Name": "Внуковское",
+  "AccidentRate": 10.35
+ },
+ {
+  "Name": "Левобережный",
+  "AccidentRate": 27.49
+ },
+ {
+  "Name": "Киевский",
+  "AccidentRate": 4.49
+ },
+ {
+  "Name": "Академический",
+  "AccidentRate": 22.61
+ },
+ {
+  "Name": "Краснопахорское поселение",
+  "AccidentRate": 12.65
+ },
+ {
+  "Name": "Москворечье-Сабурово",
+  "AccidentRate": 32.53
+ },
+ {
+  "Name": "Строгино",
+  "AccidentRate": 57.33
+ },
+ {
+  "Name": "Останкинский",
+  "AccidentRate": 31.65
+ },
+ {
+  "Name": "Некрасовка",
+  "AccidentRate": 17.41
+ },
+ {
+  "Name": "Можайский",
+  "AccidentRate": 50.87
+ },
+ {
+  "Name": "Капотня",
+  "AccidentRate": 26.28
+ },
+ {
+  "Name": "Северное Измайлово",
+  "AccidentRate": 29.68
+ },
+ {
+  "Name": "Северное Бутово",
+  "AccidentRate": 26.39
+ },
+ {
+  "Name": "Бирюлево Западное",
+  "AccidentRate": 27.76
+ },
+ {
+  "Name": "Кузьминки",
+  "AccidentRate": 32.69
+ },
+ {
+  "Name": "Дорогомилово",
+  "AccidentRate": 50.27
+ },
+ {
+  "Name": "Клёновское",
+  "AccidentRate": 5.2
+ },
+ {
+  "Name": "Бутырский",
+  "AccidentRate": 15.27
+ },
+ {
+  "Name": "Московский",
+  "AccidentRate": 50.76
+ },
+ {
+  "Name": "Алексеевский",
+  "AccidentRate": 21.19
+ },
+ {
+  "Name": "Коньково",
+  "AccidentRate": 35.81
+ },
+ {
+  "Name": "Бабушкинский",
+  "AccidentRate": 20.92
+ },
+ {
+  "Name": "Чертаново Северное",
+  "AccidentRate": 27.16
+ },
+ {
+  "Name": "Нагорный",
+  "AccidentRate": 27.21
+ },
+ {
+  "Name": "Свиблово",
+  "AccidentRate": 18.12
+ },
+ {
+  "Name": "Митино",
+  "AccidentRate": 53.28
+ },
+ {
+  "Name": "Новокосино",
+  "AccidentRate": 21.57
+ },
+ {
+  "Name": "Косино-Ухтомский",
+  "AccidentRate": 33.46
+ },
+ {
+  "Name": "Красносельский",
+  "AccidentRate": 19.49
+ },
+ {
+  "Name": "Лосиноостровский",
+  "AccidentRate": 22.56
+ },
+ {
+  "Name": "Даниловский",
+  "AccidentRate": 54.38
+ },
+ {
+  "Name": "Тимирязевский",
+  "AccidentRate": 30.28
+ },
+ {
+  "Name": "Пресненский",
+  "AccidentRate": 61.77
+ },
+ {
+  "Name": "Очаково-Матвеевское",
+  "AccidentRate": 54.7
+ },
+ {
+  "Name": "Сокольники",
+  "AccidentRate": 23.11
+ },
+ {
+  "Name": "Филевский парк",
+  "AccidentRate": 17.19
+ },
+ {
+  "Name": "Силино",
+  "AccidentRate": 9.74
+ },
+ {
+  "Name": "Раменки",
+  "AccidentRate": 45.72
+ },
+ {
+  "Name": "Савёлки",
+  "AccidentRate": 11.77
+ },
+ {
+  "Name": "Рязанский",
+  "AccidentRate": 24.97
+ },
+ {
+  "Name": "Выхино-Жулебино",
+  "AccidentRate": 76.34
+ },
+ {
+  "Name": "Измайлово",
+  "AccidentRate": 31.48
+ },
+ {
+  "Name": "Южное Тушино",
+  "AccidentRate": 36.41
+ },
+ {
+  "Name": "Троицк",
+  "AccidentRate": 8.92
+ },
+ {
+  "Name": "Филимонковское",
+  "AccidentRate": 7.39
+ },
+ {
+  "Name": "Марфино",
+  "AccidentRate": 12.04
+ },
+ {
+  "Name": "Царицыно",
+  "AccidentRate": 19.71
+ },
+ {
+  "Name": "Михайлово-Ярцевское поселение",
+  "AccidentRate": 4.38
+ },
+ {
+  "Name": "Первомайское поселение",
+  "AccidentRate": 10.07
+ },
+ {
+  "Name": "Южное Медведково",
+  "AccidentRate": 11.06
+ },
+ {
+  "Name": "Проспект Вернадского",
+  "AccidentRate": 20.04
+ },
+ {
+  "Name": "Бескудниковский",
+  "AccidentRate": 15.93
+ },
+ {
+  "Name": "Черемушки",
+  "AccidentRate": 26.45
+ },
+ {
+  "Name": "Рязановское",
+  "AccidentRate": 6.57
+ },
+ {
+  "Name": "Метрогородок",
+  "AccidentRate": 16.86
+ },
+ {
+  "Name": "Матушкино",
+  "AccidentRate": 8.43
+ },
+ {
+  "Name": "Старое Крюково",
+  "AccidentRate": 6.51
+ },
+ {
+  "Name": "Богородское",
+  "AccidentRate": 17.3
+ },
+ {
+  "Name": "Братеево",
+  "AccidentRate": 21.9
+ },
+ {
+  "Name": "Вороновское поселение",
+  "AccidentRate": 12.97
+ },
+ {
+  "Name": "Алтуфьевский",
+  "AccidentRate": 8.59
+ },
+ {
+  "Name": "Щербинка",
+  "AccidentRate": 8.15
+ },
+ {
+  "Name": "Восточное Измайлово",
+  "AccidentRate": 13.52
+ },
+ {
+  "Name": "Кокошкино",
+  "AccidentRate": 1.15
+ },
+ {
+  "Name": "Роговское поселение",
+  "AccidentRate": 6.35
+ },
+ {
+  "Name": "Поселок Восточный",
+  "AccidentRate": 1.25
+ },
+ {
+  "Name": "Воскресенское",
+  "AccidentRate": 3.17
+ }
+]

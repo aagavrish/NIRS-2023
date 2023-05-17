@@ -25,6 +25,7 @@ type Config struct {
 	Interval       float64 `json:"Interval"`
 	LastUpdateDate string  `json:"LastUpdateDate"`
 	DataPathName   string  `json:"DataPathName"`
+	InputAccuracy  float64 `json:"InputAccuracy"`
 }
 
 var config Config
