@@ -3,27 +3,35 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"nirs/packages/jsonprocess"
 	"time"
 )
 
+func timeTrack(start time.Time, name string) {
+	elapsed := time.Since(start)
+	log.Printf("%s took %s", name, elapsed)
+}
+
 func main() {
+	defer timeTrack(time.Now(), "main")
 	json.Unmarshal(jsonprocess.OpenJSON("./config.json"), &config)
 
 	JSONfilename := config.DataPathName + "/" + config.JSONfilename
 	DataPathName := config.DataPathName + "/"
 
-	CSVfilenames := file_processing(JSONfilename, DataPathName)
-	MergingFiles(CSVfilenames)
-	jsonprocess.ParseJSON(JSONfilename, accidents)
-
 	currentDate := time.Now().Format("01.02.2006")
-	if currentDate != config.LastUpdateDate {
+	if currentDate != config.LastUpdateDate || CheckExist(JSONfilename) {
+		CSVfilenames := SearchFiles(JSONfilename, DataPathName)
+		MergingFiles(CSVfilenames)
+		jsonprocess.ParseJSON(JSONfilename, accidents)
 		CalculateAcidentRate(accidents)
+
 		config.LastUpdateDate = currentDate
 		jsonprocess.ParseJSON("./config.json", config)
 		jsonprocess.ParseJSON("./data/districts.json", districts)
 	} else {
+		json.Unmarshal(jsonprocess.OpenJSON(JSONfilename), &accidents)
 		json.Unmarshal(jsonprocess.OpenJSON("./data/districts.json"), &districts)
 	}
 
@@ -33,13 +41,11 @@ func main() {
 
 	switch flag {
 	case 1:
-		DistrictExport(accidents)
+		for idx, distrct := range districts {
+			fmt.Printf("%d. %s\n", idx+1, distrct.Name)
+		}
 	case 2:
 		Calculation(accidents)
-	case 3:
-		for idx, distrct := range districts {
-			fmt.Println(idx+1, distrct.Name, distrct.AccidentRate)
-		}
 	default:
 		fmt.Println("Неккоректное значение флага")
 	}

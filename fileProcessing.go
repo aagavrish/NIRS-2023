@@ -2,10 +2,22 @@ package main
 
 import (
 	"encoding/csv"
+	"errors"
 	"os"
 	"strconv"
 	"strings"
 )
+
+func CheckExist(filename string) bool {
+	_, err := os.Stat(filename)
+	if err == nil {
+		return false
+	}
+	if errors.Is(err, os.ErrNotExist) {
+		return true
+	}
+	return true
+}
 
 func MergingFiles(filenames []string) {
 	var index int = 0
@@ -53,7 +65,7 @@ func MergingFiles(filenames []string) {
 	}
 }
 
-func file_processing(JSONfilename string, DataPathname string) []string {
+func SearchFiles(JSONfilename string, DataPathname string) []string {
 	var CSVfilenames []string
 
 	yearPaths, err := os.ReadDir(DataPathname)
