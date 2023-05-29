@@ -1,0 +1,64 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f0f0f0;
+}
+
+.form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    row-gap: 15px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 20px #ccc;  
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 210px 370px;
+}
+
+.inputblock {
+    display: grid;
+    width: 200px;
+}
+
+.infoblock {
+    display: grid;
+    height: 120px;
+    margin: 7px;
+    white-space: pre-line;
+    text-align: center;
+    line-height: 1.25;
+}
+
+.inputblock > input,
+.inputblock > button,
+.inputblock > select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    outline: none;
+    margin: 7px;
+    text-align: center;
+}
+
+.inputblock > select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.inputblock > select::-ms-expand {
+    display: none;
+}
+
+.inputblock > button:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}

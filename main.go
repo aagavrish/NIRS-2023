@@ -1,52 +1,45 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"log"
-	"nirs/packages/jsonprocess"
-	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
-func timeTrack(start time.Time, name string) {
-	elapsed := time.Since(start)
-	log.Printf("%s took %s", name, elapsed)
+var router *gin.Engine
+var DistrictName string
+var DistrictPercent int
+var data Data
+
+type Data struct {
+	Region   string `json:"Region"`
+	District string `json:"District"`
 }
 
 func main() {
-	defer timeTrack(time.Now(), "main")
-	json.Unmarshal(jsonprocess.OpenJSON("./config.json"), &config)
+	router = gin.Default()
+	router.Static("/assets/", "front/")
+	router.LoadHTMLGlob("templates/*.html")
+	router.GET("/", handlerIndex)
+	router.POST("/calculation", handlerCalculation)
+	_ = router.Run(":4040")
+}
 
-	JSONfilename := config.DataPathName + "/" + config.JSONfilename
-	DataPathName := config.DataPathName + "/"
+func handlerIndex(c *gin.Context) {
+	c.HTML(200, "index.html", gin.H{
+		"Region":   data.Region,
+		"District": DistrictName,
+		"Percent":  DistrictPercent,
+	})
+}
 
-	currentDate := time.Now().Format("01.02.2006")
-	if currentDate != config.LastUpdateDate || CheckExist(JSONfilename) {
-		CSVfilenames := SearchFiles(JSONfilename, DataPathName)
-		MergingFiles(CSVfilenames)
-		jsonprocess.ParseJSON(JSONfilename, accidents)
-		CalculateAcidentRate(accidents)
-
-		config.LastUpdateDate = currentDate
-		jsonprocess.ParseJSON("./config.json", config)
-		jsonprocess.ParseJSON("./data/districts.json", districts)
-	} else {
-		json.Unmarshal(jsonprocess.OpenJSON(JSONfilename), &accidents)
-		json.Unmarshal(jsonprocess.OpenJSON("./data/districts.json"), &districts)
+func handlerCalculation(c *gin.Context) {
+	err := c.BindJSON(&data)
+	if err != nil {
+		c.JSON(400, gin.H{})
+		return
 	}
-
-	var flag int
-	fmt.Printf("1 - вывести список возможных районов\n2 - выбор района для прогнозирования\nФлаг: ")
-	fmt.Scan(&flag)
-
-	switch flag {
-	case 1:
-		for idx, distrct := range districts {
-			fmt.Printf("%d. %s\n", idx+1, distrct.Name)
-		}
-	case 2:
-		Calculation(accidents)
-	default:
-		fmt.Println("Неккоректное значение флага")
-	}
+	fmt.Println(data)
+	DistrictName, DistrictPercent = CheckAccidentRate(data.District)
+	fmt.Println(DistrictName, DistrictPercent)
 }

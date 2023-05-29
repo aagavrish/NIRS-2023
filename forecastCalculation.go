@@ -77,48 +77,44 @@ func StringComparison(defdistrict string, inputdistrict string) bool {
 	}
 }
 
-func Calculation(accidents []Accident) {
+func Calculation(district string, accidents []Accident) (string, int) {
 	var averageRate float64
 	for _, district := range districts {
 		averageRate += district.AccidentRate
 	}
 	averageRate /= float64(len(districts))
+	fmt.Println(averageRate)
 
-	var found bool
-	var district string
-	fmt.Printf("Район: ")
-	fmt.Scan(&district)
+	// var district string
+	// fmt.Printf("Район: ")
+	// fmt.Scan(&district)
 	for i := 0; i < len(districts); i++ {
 		if StringComparison(districts[i].Name, district) {
-			district = districts[i].Name
-			found = true
-			if districts[i].AccidentRate <= averageRate+config.Interval && districts[i].AccidentRate >= averageRate-config.Interval {
-				fmt.Printf("В районе '%s' СРЕДНЕЕ значение аварийности: %.2f%% (среднее значение: %.2f%%)\n", districts[i].Name, districts[i].AccidentRate, averageRate)
-			} else if districts[i].AccidentRate > averageRate+config.Interval {
-				fmt.Printf("В районе '%s' ВЫСОКОЕ значение аварийности: %.2f%% (среднее значение: %.2f%%)\n", districts[i].Name, districts[i].AccidentRate, averageRate)
-			} else if districts[i].AccidentRate < averageRate-config.Interval {
-				fmt.Printf("В районе '%s' НИЗКОЕ значение аварийности: %.2f%% (среднее значение: %.2f%%)\n", districts[i].Name, districts[i].AccidentRate, averageRate)
-			}
+			// if districts[i].AccidentRate <= averageRate+config.Interval && districts[i].AccidentRate >= averageRate-config.Interval {
+			// 	return district, int(districts[i].AccidentRate)
+			// } else if districts[i].AccidentRate > averageRate+config.Interval {
+			// 	return district, int(districts[i].AccidentRate)
+			// } else if districts[i].AccidentRate < averageRate-config.Interval {
+			// 	return district, int(districts[i].AccidentRate)
+			// }
+			return districts[i].Name, int(districts[i].AccidentRate)
 		}
 	}
+	return "Не найден", 0
 
-	if !found {
-		return
-	}
-
-	fmt.Printf("Предоставить отчёт по ДТП в районе %s? Да/нет: ", district)
-	var answer string
-	fmt.Scan(&answer)
-	switch answer {
-	case "Да", "да", "Yes", "yes", "y":
-		var carsCount int = 0
-		for _, accident := range accidents {
-			if accident.District == district {
-				fmt.Printf("Район: %s. Дата: %s. Номер ДТП: %s. Форма ДТП: %s. Количество авто: %.0f.\n",
-					accident.District, accident.Date, accident.DTPnumber, accident.DTPform, accident.CARScount)
-				carsCount += int(accident.CARScount)
-			}
-		}
-		fmt.Printf("Итого в ДТП попало: %d\n", carsCount)
-	}
+	// fmt.Printf("Предоставить отчёт по ДТП в районе %s? Да/нет: ", district)
+	// var answer string
+	// fmt.Scan(&answer)
+	// switch answer {
+	// case "Да", "да", "Yes", "yes", "y":
+	// 	var carsCount int = 0
+	// 	for _, accident := range accidents {
+	// 		if accident.District == district {
+	// 			fmt.Printf("Район: %s. Дата: %s. Номер ДТП: %s. Форма ДТП: %s. Количество авто: %.0f.\n",
+	// 				accident.District, accident.Date, accident.DTPnumber, accident.DTPform, accident.CARScount)
+	// 			carsCount += int(accident.CARScount)
+	// 		}
+	// 	}
+	// 	fmt.Printf("Итого в ДТП попало: %d\n", carsCount)
+	// }
 }
