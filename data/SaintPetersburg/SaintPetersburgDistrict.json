@@ -1,0 +1,74 @@
+[
+ {
+  "Name": "Центральный",
+  "AccidentRate": 8.21
+ },
+ {
+  "Name": "Василеостровский",
+  "AccidentRate": 5.58
+ },
+ {
+  "Name": "Пушкинский",
+  "AccidentRate": 10.62
+ },
+ {
+  "Name": "Петроградский",
+  "AccidentRate": 5.85
+ },
+ {
+  "Name": "Кировский",
+  "AccidentRate": 12.26
+ },
+ {
+  "Name": "Приморский",
+  "AccidentRate": 14.12
+ },
+ {
+  "Name": "Выборгский",
+  "AccidentRate": 13.96
+ },
+ {
+  "Name": "Калининский",
+  "AccidentRate": 12.1
+ },
+ {
+  "Name": "Невский",
+  "AccidentRate": 14.89
+ },
+ {
+  "Name": "Московский",
+  "AccidentRate": 13.25
+ },
+ {
+  "Name": "Курортный",
+  "AccidentRate": 4.7
+ },
+ {
+  "Name": "Красногвардейский",
+  "AccidentRate": 9.36
+ },
+ {
+  "Name": "Фрунзенский",
+  "AccidentRate": 9.52
+ },
+ {
+  "Name": "Красносельский",
+  "AccidentRate": 13.63
+ },
+ {
+  "Name": "Петродворцовый",
+  "AccidentRate": 3.34
+ },
+ {
+  "Name": "Адмиралтейский",
+  "AccidentRate": 6.24
+ },
+ {
+  "Name": "Колпинский",
+  "AccidentRate": 4.21
+ },
+ {
+  "Name": "Кронштадтский",
+  "AccidentRate": 0.43
+ }
+]

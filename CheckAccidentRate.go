@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"nirs/packages/jsonprocess"
 	"time"
 )
@@ -22,8 +21,6 @@ func RegionValidation(region string) string {
 		regionName = "MoscowRegion"
 	case "Санкт-Петербург":
 		regionName = "SaintPetersburg"
-	case "Казань":
-		regionName = "Kazan"
 	default:
 		regionName = "Moscow"
 		data.Region = "Москва"
@@ -40,19 +37,22 @@ func CheckAccidentRate(region string, district string) (string, int) {
 	if currentDate != config.LastUpdateDate {
 		CSVfilenames := SearchFiles(DataPathName)
 		for reg, paths := range CSVfilenames {
-			fmt.Println(reg, regionName)
+			if regionName != reg {
+				continue
+			}
+			districts, accidents = nil, nil
+
 			MergingFiles(paths)
-			jsonprocess.ParseJSON(DataPathName+regionName+"/"+regionName+DTPfile, accidents)
+			jsonprocess.ParseJSON(DataPathName+reg+"/"+reg+DTPfile, accidents)
 			CalculateAcidentRate(accidents)
-			jsonprocess.ParseJSON(DataPathName+regionName+"/"+regionName+DISTRICTfile, districts)
+			jsonprocess.ParseJSON(DataPathName+reg+"/"+reg+DISTRICTfile, districts)
 		}
 		config.LastUpdateDate = currentDate
 		jsonprocess.ParseJSON(ConfigPath, config)
 	} else {
+		districts, accidents = nil, nil
 		if !CheckExist(DataPathName + regionName + "/" + regionName + DISTRICTfile) {
 			json.Unmarshal(jsonprocess.OpenJSON(DataPathName+regionName+"/"+regionName+DISTRICTfile), &districts)
-		} else {
-			districts = nil
 		}
 	}
 

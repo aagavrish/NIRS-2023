@@ -80,17 +80,22 @@ func StringComparison(defdistrict string, inputdistrict string) bool {
 	}
 }
 
-func Calculation(district string, accidents []Accident) (string, int) {
+func Calculation(district string, accident []Accident) (string, int) {
 	var averageRate float64
 	for _, district := range districts {
 		averageRate += district.AccidentRate
 	}
 	averageRate /= float64(len(districts))
 
+	var districtName string = NF
+	var districtRate int = 0
+
 	for i := 0; i < len(districts); i++ {
 		if StringComparison(districts[i].Name, district) {
-			return districts[i].Name, int(districts[i].AccidentRate)
+			districtName = districts[i].Name
+			districtRate = int(districts[i].AccidentRate)
+			districts, accidents = nil, nil
 		}
 	}
-	return NF, 0
+	return districtName, districtRate
 }

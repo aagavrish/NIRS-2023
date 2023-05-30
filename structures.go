@@ -14,11 +14,6 @@ type Accident struct {
 	MEMBERScount float64 `json:"MEMBERScount"`
 }
 
-type District struct {
-	Name         string
-	AccidentRate float64
-}
-
 type Config struct {
 	Days           float64 `json:"Days"`
 	JSONfilename   string  `json:"JSONfilename"`
@@ -26,6 +21,11 @@ type Config struct {
 	LastUpdateDate string  `json:"LastUpdateDate"`
 	DataPathName   string  `json:"DataPathName"`
 	InputAccuracy  float64 `json:"InputAccuracy"`
+}
+
+type District struct {
+	Name         string
+	AccidentRate float64
 }
 
 var config Config
