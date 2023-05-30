@@ -7,9 +7,13 @@ import (
 	"time"
 )
 
-func CheckAccidentRate(region string, district string) (string, int) {
-	json.Unmarshal(jsonprocess.OpenJSON("./config.json"), &config)
-	DataPathName := config.DataPathName + "/"
+const (
+	DTPfile      = "DTP.json"
+	DISTRICTfile = "District.json"
+	TimeFormat   = "01.02.2006" // "MM/DD/YYYY"
+)
+
+func RegionValidation(region string) string {
 	var regionName string
 	switch region {
 	case "Москва":
@@ -24,22 +28,29 @@ func CheckAccidentRate(region string, district string) (string, int) {
 		regionName = "Moscow"
 		data.Region = "Москва"
 	}
+	return regionName
+}
 
-	currentDate := time.Now().Format("01.02.2006")
+func CheckAccidentRate(region string, district string) (string, int) {
+	json.Unmarshal(jsonprocess.OpenJSON(ConfigPath), &config)
+	DataPathName := config.DataPathName + "/"
+	var regionName string = RegionValidation(region)
+
+	currentDate := time.Now().Format(TimeFormat)
 	if currentDate != config.LastUpdateDate {
 		CSVfilenames := SearchFiles(DataPathName)
 		for reg, paths := range CSVfilenames {
 			fmt.Println(reg, regionName)
 			MergingFiles(paths)
-			jsonprocess.ParseJSON(DataPathName+regionName+"/"+regionName+"DTP.json", accidents)
+			jsonprocess.ParseJSON(DataPathName+regionName+"/"+regionName+DTPfile, accidents)
 			CalculateAcidentRate(accidents)
-			jsonprocess.ParseJSON(DataPathName+regionName+"/"+regionName+"District.json", districts)
+			jsonprocess.ParseJSON(DataPathName+regionName+"/"+regionName+DISTRICTfile, districts)
 		}
 		config.LastUpdateDate = currentDate
-		jsonprocess.ParseJSON("./config.json", config)
+		jsonprocess.ParseJSON(ConfigPath, config)
 	} else {
-		if !CheckExist(DataPathName + regionName + "/" + regionName + "District.json") {
-			json.Unmarshal(jsonprocess.OpenJSON(DataPathName+regionName+"/"+regionName+"District.json"), &districts)
+		if !CheckExist(DataPathName + regionName + "/" + regionName + DISTRICTfile) {
+			json.Unmarshal(jsonprocess.OpenJSON(DataPathName+regionName+"/"+regionName+DISTRICTfile), &districts)
 		} else {
 			districts = nil
 		}

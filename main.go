@@ -4,16 +4,22 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+const (
+	ConfigPath = "./config.json"
+	Port       = ":4040"
+)
+
 var router *gin.Engine
 
 var DistrictName string
 var DistrictPercent int
-var data Data
 
 type Data struct {
 	Region   string `json:"Region"`
 	District string `json:"District"`
 }
+
+var data Data
 
 func main() {
 	router = gin.Default()
@@ -21,7 +27,7 @@ func main() {
 	router.LoadHTMLGlob("templates/*.html")
 	router.GET("/", handlerIndex)
 	router.POST("/calculation", handlerCalculation)
-	_ = router.Run(":4040")
+	_ = router.Run(Port)
 }
 
 func handlerIndex(c *gin.Context) {

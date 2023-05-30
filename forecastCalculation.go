@@ -4,6 +4,10 @@ import (
 	"strings"
 )
 
+const (
+	NF = "Не найден"
+)
+
 func DistrictsAdd(accidents []Accident) {
 	var district District
 	var district_names []string = DistrictExport(accidents)
@@ -88,5 +92,5 @@ func Calculation(district string, accidents []Accident) (string, int) {
 			return districts[i].Name, int(districts[i].AccidentRate)
 		}
 	}
-	return "Не найден", 0
+	return NF, 0
 }
