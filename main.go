@@ -1,12 +1,11 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/gin-gonic/gin"
 )
 
 var router *gin.Engine
+
 var DistrictName string
 var DistrictPercent int
 var data Data
@@ -18,7 +17,7 @@ type Data struct {
 
 func main() {
 	router = gin.Default()
-	router.Static("/assets/", "front/")
+	router.Static("/assets/", "assets/")
 	router.LoadHTMLGlob("templates/*.html")
 	router.GET("/", handlerIndex)
 	router.POST("/calculation", handlerCalculation)
@@ -39,7 +38,5 @@ func handlerCalculation(c *gin.Context) {
 		c.JSON(400, gin.H{})
 		return
 	}
-	fmt.Println(data)
-	DistrictName, DistrictPercent = CheckAccidentRate(data.District)
-	fmt.Println(DistrictName, DistrictPercent)
+	DistrictName, DistrictPercent = CheckAccidentRate(data.Region, data.District)
 }

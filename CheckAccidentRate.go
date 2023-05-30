@@ -2,43 +2,48 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"nirs/packages/jsonprocess"
 	"time"
 )
 
-func CheckAccidentRate(district string) (string, int) {
+func CheckAccidentRate(region string, district string) (string, int) {
 	json.Unmarshal(jsonprocess.OpenJSON("./config.json"), &config)
-
-	JSONfilename := config.DataPathName + "/" + config.JSONfilename
 	DataPathName := config.DataPathName + "/"
-
-	currentDate := time.Now().Format("01.02.2006")
-	if currentDate != config.LastUpdateDate || CheckExist(JSONfilename) {
-		CSVfilenames := SearchFiles(JSONfilename, DataPathName)
-		MergingFiles(CSVfilenames)
-		jsonprocess.ParseJSON(JSONfilename, accidents)
-		CalculateAcidentRate(accidents)
-
-		config.LastUpdateDate = currentDate
-		jsonprocess.ParseJSON("./config.json", config)
-		jsonprocess.ParseJSON("./data/districts.json", districts)
-	} else {
-		json.Unmarshal(jsonprocess.OpenJSON(JSONfilename), &accidents)
-		json.Unmarshal(jsonprocess.OpenJSON("./data/districts.json"), &districts)
+	var regionName string
+	switch region {
+	case "Москва":
+		regionName = "Moscow"
+	case "Московская область":
+		regionName = "MoscowRegion"
+	case "Санкт-Петербург":
+		regionName = "SaintPetersburg"
+	case "Казань":
+		regionName = "Kazan"
+	default:
+		regionName = "Moscow"
+		data.Region = "Москва"
 	}
 
-	// var flag int
-	// fmt.Printf("1 - вывести список возможных районов\n2 - выбор района для прогнозирования\nФлаг: ")
-	// fmt.Scan(&flag)
+	currentDate := time.Now().Format("01.02.2006")
+	if currentDate != config.LastUpdateDate {
+		CSVfilenames := SearchFiles(DataPathName)
+		for reg, paths := range CSVfilenames {
+			fmt.Println(reg, regionName)
+			MergingFiles(paths)
+			jsonprocess.ParseJSON(DataPathName+regionName+"/"+regionName+"DTP.json", accidents)
+			CalculateAcidentRate(accidents)
+			jsonprocess.ParseJSON(DataPathName+regionName+"/"+regionName+"District.json", districts)
+		}
+		config.LastUpdateDate = currentDate
+		jsonprocess.ParseJSON("./config.json", config)
+	} else {
+		if !CheckExist(DataPathName + regionName + "/" + regionName + "District.json") {
+			json.Unmarshal(jsonprocess.OpenJSON(DataPathName+regionName+"/"+regionName+"District.json"), &districts)
+		} else {
+			districts = nil
+		}
+	}
 
-	// switch flag {
-	// case 1:
-	// 	for idx, distrct := range districts {
-	// 		fmt.Printf("%d. %s\n", idx+1, distrct.Name)
-	// 	}
-	// case 2:
 	return Calculation(district, accidents)
-	// default:
-	// 	fmt.Println("Неккоректное значение флага")
-	// }
 }

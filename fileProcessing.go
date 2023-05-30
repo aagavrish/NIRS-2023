@@ -65,23 +65,27 @@ func MergingFiles(filenames []string) {
 	}
 }
 
-func SearchFiles(JSONfilename string, DataPathname string) []string {
-	var CSVfilenames []string
-
-	yearPaths, err := os.ReadDir(DataPathname)
+func SearchFiles(DataPathname string) map[string][]string {
+	CSVfilenames := make(map[string][]string)
+	regionPaths, err := os.ReadDir(DataPathname)
 	if err != nil {
 		panic(err)
 	}
 
-	for _, yearPath := range yearPaths {
-		monthDataFiles, err := os.ReadDir(DataPathname + yearPath.Name())
+	for _, regionPath := range regionPaths {
+		yearPaths, err := os.ReadDir(DataPathname + regionPath.Name())
 		if err != nil {
 			break
 		}
-		for _, monthDataFile := range monthDataFiles {
-			CSVfilenames = append(CSVfilenames, DataPathname+yearPath.Name()+"/"+monthDataFile.Name())
+		for _, yearPath := range yearPaths {
+			monthPaths, err := os.ReadDir(DataPathname + regionPath.Name() + "/" + yearPath.Name())
+			if err != nil {
+				break
+			}
+			for _, monthPath := range monthPaths {
+				CSVfilenames[regionPath.Name()] = append(CSVfilenames[regionPath.Name()], DataPathname+regionPath.Name()+"/"+yearPath.Name()+"/"+monthPath.Name())
+			}
 		}
 	}
-
 	return CSVfilenames
 }
