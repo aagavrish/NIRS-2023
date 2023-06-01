@@ -14,13 +14,20 @@ body {
     left: 50%;
     width: 600px;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background-color: rgba(0, 125, 75, 0.462);
     row-gap: 15px;
-    border-radius: 10px;
-    box-shadow: 4px 4px 20px #ccc;  
+    box-shadow: 4px 4px 20px #93D8AD;  
     padding: 10px;
     display: grid;
     grid-template-columns: 210px 370px;
+    font-size: 17px;
+}
+
+.photos {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
 }
 
 .inputblock {
@@ -29,20 +36,30 @@ body {
 }
 
 .infoblock {
+    align-items: center;
     display: grid;
     height: 120px;
     margin: 7px;
+    margin-right: 10px;
     white-space: pre-line;
     text-align: center;
     line-height: 1.25;
     row-gap: 10px;
+    color: white;
+}
+
+.infotext {
+    align-items: center;
+    background-color: #93d8adeb;
+    color: black;
+    height: 80px;
+    display: grid;
 }
 
 .inputblock > input,
 .inputblock > button,
 .inputblock > select {
     border: 1px solid #ccc;
-    border-radius: 4px;
     padding: 5px;
     outline: none;
     margin: 7px;
@@ -66,11 +83,11 @@ body {
 
 .signalsquare {
     font-family: 'Courier New', Courier, monospace;
-    border-radius: 4px;
     width: 100px;
     height: 25px;
     align-items: center;
     font-size: 15px;
     display: grid;
     margin-left: 125px;
+    color: black;
 }

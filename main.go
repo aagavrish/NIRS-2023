@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	Port = ":3030"
+	Port = ":1010"
 )
 
 var router *gin.Engine
@@ -29,6 +29,7 @@ var idata inData
 func main() {
 	router = gin.Default()
 	router.Static("/assets/", "assets/")
+	router.Static("/src/", "src/")
 	router.LoadHTMLGlob("templates/*.html")
 	router.GET("/", handlerIndex)
 	router.POST("/calculation", handlerCalculation)

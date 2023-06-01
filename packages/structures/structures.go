@@ -16,7 +16,6 @@ type Accident struct {
 
 type Config struct {
 	Days           float64 `json:"Days"`
-	JSONfilename   string  `json:"JSONfilename"`
 	Interval       float64 `json:"Interval"`
 	LastUpdateDate string  `json:"LastUpdateDate"`
 	DataPathName   string  `json:"DataPathName"`
