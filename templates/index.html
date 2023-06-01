@@ -15,16 +15,24 @@
                     <option value="Санкт-Петербург">Санкт-Петербург</option>
                 </select>
                 <input name="District" placeholder ="Введите район">
-                <button>Рассчитать</button>
+                <button onclick="buttonclick(`{{.Percent}}`)">Рассчитать</button>
             </div>
             <div class = "infoblock">
-                <p class="infotext">
+                <p id = "infotext">
                     Регион: {{.Region}}
                     Район: {{.District}}
                     Коэффициент аварийности равен {{.Percent}}%
                 </p>
+                {{if (eq .Color 1)}}
+                <p class ="signalsquare" id="signal" style="background-color: rgb(255, 122, 122);">ВЫСОКИЙ</p>
+                {{else if (eq .Color 2)}}
+                <p class ="signalsquare" id="signal" style="background-color: rgb(255, 255, 133);">СРЕДНИЙ</p>
+                {{else if (eq .Color 3)}}
+                <p class ="signalsquare" id="signal" style="background-color: rgb(100, 253, 100);">НИЗКИЙ</p>
+                {{end}}
             </div>
         </div>
         <script src="/assets/js/script.js"></script>
+        <script src="/assets/js/changecolor.js"></script>
     </body>
 </html>

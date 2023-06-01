@@ -1,11 +1,16 @@
 package main
 
 import (
+	"fmt"
 	"strings"
 )
 
 const (
-	NF = "Не найден"
+	NF     = "Не найден"
+	WHITE  = 0
+	RED    = 1
+	YELLOW = 2
+	GREEN  = 3
 )
 
 func DistrictsAdd(accidents []Accident) {
@@ -80,8 +85,9 @@ func StringComparison(defdistrict string, inputdistrict string) bool {
 	}
 }
 
-func Calculation(district string, accident []Accident) (string, int) {
+func Calculation(district string, accident []Accident) (string, int, int) {
 	var averageRate float64
+	var color int = WHITE
 	for _, district := range districts {
 		averageRate += district.AccidentRate
 	}
@@ -94,8 +100,19 @@ func Calculation(district string, accident []Accident) (string, int) {
 		if StringComparison(districts[i].Name, district) {
 			districtName = districts[i].Name
 			districtRate = int(districts[i].AccidentRate)
+			switch {
+			case districtRate >= int(averageRate)+int(config.Interval):
+				color = RED
+			case districtRate <= int(averageRate)-int(config.Interval):
+				color = GREEN
+			case districtRate < int(averageRate)+int(config.Interval) && districtRate > int(averageRate)-int(config.Interval):
+				color = YELLOW
+			}
 			districts, accidents = nil, nil
 		}
 	}
-	return districtName, districtRate
+
+	fmt.Printf("Район: %s, Коэф: %d, Средний: %f\n", districtName, districtRate, averageRate)
+
+	return districtName, districtRate, color
 }

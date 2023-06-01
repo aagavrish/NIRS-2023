@@ -28,7 +28,7 @@ func RegionValidation(region string) string {
 	return regionName
 }
 
-func CheckAccidentRate(region string, district string) (string, int) {
+func CheckAccidentRate(region string, district string) (string, int, int) {
 	json.Unmarshal(jsonprocess.OpenJSON(ConfigPath), &config)
 	DataPathName := config.DataPathName + "/"
 	var regionName string = RegionValidation(region)

@@ -15,7 +15,6 @@ if (button) {
             window.location.href="/";
         }
 
-        console.log(JSON.stringify(data))
         xhr.send(JSON.stringify(data))
     }
 }

@@ -6,13 +6,14 @@ import (
 
 const (
 	ConfigPath = "./config.json"
-	Port       = ":4040"
+	Port       = ":1303"
 )
 
 var router *gin.Engine
 
 var DistrictName string
 var DistrictPercent int
+var DistrictColor int
 
 type Data struct {
 	Region   string `json:"Region"`
@@ -35,6 +36,7 @@ func handlerIndex(c *gin.Context) {
 		"Region":   data.Region,
 		"District": DistrictName,
 		"Percent":  DistrictPercent,
+		"Color":    DistrictColor,
 	})
 }
 
@@ -44,5 +46,5 @@ func handlerCalculation(c *gin.Context) {
 		c.JSON(400, gin.H{})
 		return
 	}
-	DistrictName, DistrictPercent = CheckAccidentRate(data.Region, data.District)
+	DistrictName, DistrictPercent, DistrictColor = CheckAccidentRate(data.Region, data.District)
 }

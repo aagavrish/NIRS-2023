@@ -35,6 +35,7 @@ body {
     white-space: pre-line;
     text-align: center;
     line-height: 1.25;
+    row-gap: 10px;
 }
 
 .inputblock > input,
@@ -61,4 +62,15 @@ body {
 .inputblock > button:hover {
     background-color: #ccc;
     cursor: pointer;
+}
+
+.signalsquare {
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 4px;
+    width: 100px;
+    height: 25px;
+    align-items: center;
+    font-size: 15px;
+    display: grid;
+    margin-left: 125px;
 }
