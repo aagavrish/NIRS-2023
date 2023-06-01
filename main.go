@@ -1,26 +1,30 @@
 package main
 
 import (
+	"nirs/packages/forecast"
+
 	"github.com/gin-gonic/gin"
 )
 
 const (
-	ConfigPath = "./config.json"
-	Port       = ":1303"
+	Port = ":3030"
 )
 
 var router *gin.Engine
 
-var DistrictName string
-var DistrictPercent int
-var DistrictColor int
+type outData struct {
+	Name    string
+	Percent int
+	Color   int
+}
 
-type Data struct {
+type inData struct {
 	Region   string `json:"Region"`
 	District string `json:"District"`
 }
 
-var data Data
+var odata outData
+var idata inData
 
 func main() {
 	router = gin.Default()
@@ -33,18 +37,18 @@ func main() {
 
 func handlerIndex(c *gin.Context) {
 	c.HTML(200, "index.html", gin.H{
-		"Region":   data.Region,
-		"District": DistrictName,
-		"Percent":  DistrictPercent,
-		"Color":    DistrictColor,
+		"Region":   idata.Region,
+		"District": odata.Name,
+		"Percent":  odata.Percent,
+		"Color":    odata.Color,
 	})
 }
 
 func handlerCalculation(c *gin.Context) {
-	err := c.BindJSON(&data)
+	err := c.BindJSON(&idata)
 	if err != nil {
 		c.JSON(400, gin.H{})
 		return
 	}
-	DistrictName, DistrictPercent, DistrictColor = CheckAccidentRate(data.Region, data.District)
+	odata.Name, odata.Percent, odata.Color = forecast.CheckAccidentRate(idata.Region, idata.District)
 }

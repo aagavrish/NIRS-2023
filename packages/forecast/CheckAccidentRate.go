@@ -1,4 +1,4 @@
-package main
+package forecast
 
 import (
 	"encoding/json"
@@ -23,7 +23,6 @@ func RegionValidation(region string) string {
 		regionName = "SaintPetersburg"
 	default:
 		regionName = "Moscow"
-		data.Region = "Москва"
 	}
 	return regionName
 }

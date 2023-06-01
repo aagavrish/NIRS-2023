@@ -1,8 +1,9 @@
-package main
+package forecast
 
 import (
 	"encoding/csv"
 	"errors"
+	"nirs/packages/structures"
 	"os"
 	"strconv"
 	"strings"
@@ -42,7 +43,7 @@ func MergingFiles(filenames []string) {
 			}
 		}
 
-		var accident Accident
+		var accident structures.Accident
 		for _, each := range csvData {
 			accident.Number = index
 			accident.Date = each[1]

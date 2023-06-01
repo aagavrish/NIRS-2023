@@ -1,20 +1,26 @@
-package main
+package forecast
 
 import (
 	"fmt"
+	"nirs/packages/structures"
 	"strings"
 )
 
 const (
-	NF     = "Не найден"
-	WHITE  = 0
-	RED    = 1
-	YELLOW = 2
-	GREEN  = 3
+	ConfigPath = "./config.json"
+	NF         = "Не найден"
+	WHITE      = 0
+	RED        = 1
+	YELLOW     = 2
+	GREEN      = 3
 )
 
-func DistrictsAdd(accidents []Accident) {
-	var district District
+var config structures.Config
+var districts []structures.District
+var accidents []structures.Accident
+
+func DistrictsAdd(accidents []structures.Accident) {
+	var district structures.District
 	var district_names []string = DistrictExport(accidents)
 	for _, curname := range district_names {
 		district.Name = curname
@@ -23,7 +29,7 @@ func DistrictsAdd(accidents []Accident) {
 	}
 }
 
-func CalculateAcidentRate(accidents []Accident) {
+func CalculateAcidentRate(accidents []structures.Accident) {
 	DistrictsAdd(accidents)
 	var carsCount float64 = 0
 	for i := 0; i < len(districts); i++ {
@@ -37,7 +43,7 @@ func CalculateAcidentRate(accidents []Accident) {
 	}
 }
 
-func DistrictExport(accidents []Accident) []string {
+func DistrictExport(accidents []structures.Accident) []string {
 	var district_names []string
 	district_names = append(district_names, accidents[0].District)
 
@@ -85,7 +91,7 @@ func StringComparison(defdistrict string, inputdistrict string) bool {
 	}
 }
 
-func Calculation(district string, accident []Accident) (string, int, int) {
+func Calculation(district string, accident []structures.Accident) (string, int, int) {
 	var averageRate float64
 	var color int = WHITE
 	for _, district := range districts {

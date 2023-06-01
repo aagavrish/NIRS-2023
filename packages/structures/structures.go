@@ -1,4 +1,4 @@
-package main
+package structures
 
 type Accident struct {
 	Number       int     `json:"Number"`
@@ -27,7 +27,3 @@ type District struct {
 	Name         string
 	AccidentRate float64
 }
-
-var config Config
-var districts []District
-var accidents []Accident
