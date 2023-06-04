@@ -2,6 +2,7 @@ package main
 
 import (
 	"nirs/packages/forecast"
+	"nirs/packages/structures"
 
 	"github.com/gin-gonic/gin"
 )
@@ -12,19 +13,8 @@ const (
 
 var router *gin.Engine
 
-type outData struct {
-	Name    string
-	Percent int
-	Color   int
-}
-
-type inData struct {
-	Region   string `json:"Region"`
-	District string `json:"District"`
-}
-
-var odata outData
-var idata inData
+var odata structures.OutData
+var idata structures.InData
 
 func main() {
 	router = gin.Default()

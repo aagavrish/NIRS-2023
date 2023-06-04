@@ -33,7 +33,7 @@ func CheckAccidentRate(region string, district string) (string, int, int) {
 	var regionName string = RegionValidation(region)
 
 	currentDate := time.Now().Format(TimeFormat)
-	if currentDate != config.LastUpdateDate {
+	if currentDate != config.LastUpdateDate || CheckExist(DataPathName+regionName+"/"+regionName+DISTRICTfile) {
 		CSVfilenames := SearchFiles(DataPathName)
 		for reg, paths := range CSVfilenames {
 			if regionName != reg {
@@ -50,9 +50,7 @@ func CheckAccidentRate(region string, district string) (string, int, int) {
 		jsonprocess.ParseJSON(ConfigPath, config)
 	} else {
 		districts, accidents = nil, nil
-		if !CheckExist(DataPathName + regionName + "/" + regionName + DISTRICTfile) {
-			json.Unmarshal(jsonprocess.OpenJSON(DataPathName+regionName+"/"+regionName+DISTRICTfile), &districts)
-		}
+		json.Unmarshal(jsonprocess.OpenJSON(DataPathName+regionName+"/"+regionName+DISTRICTfile), &districts)
 	}
 
 	return Calculation(district, accidents)

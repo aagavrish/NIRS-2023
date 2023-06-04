@@ -26,3 +26,14 @@ type District struct {
 	Name         string
 	AccidentRate float64
 }
+
+type OutData struct {
+	Name    string
+	Percent int
+	Color   int
+}
+
+type InData struct {
+	Region   string `json:"Region"`
+	District string `json:"District"`
+}
