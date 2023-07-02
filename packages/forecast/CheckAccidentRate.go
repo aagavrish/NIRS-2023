@@ -17,8 +17,8 @@ func RegionValidation(region string) string {
 	switch region {
 	case "Москва":
 		regionName = "Moscow"
-	case "Московская область":
-		regionName = "MoscowRegion"
+	case "Севастополь":
+		regionName = "Sevastopol"
 	case "Санкт-Петербург":
 		regionName = "SaintPetersburg"
 	default:

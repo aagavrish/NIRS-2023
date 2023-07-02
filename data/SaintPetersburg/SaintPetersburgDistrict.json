@@ -1,74 +1,74 @@
 [
  {
   "Name": "Центральный",
-  "AccidentRate": 75.84
+  "AccidentRate": 171.68
  },
  {
   "Name": "Василеостровский",
-  "AccidentRate": 38.22
+  "AccidentRate": 83.02
  },
  {
   "Name": "Пушкинский",
-  "AccidentRate": 56.51
+  "AccidentRate": 115.82
  },
  {
   "Name": "Петроградский",
-  "AccidentRate": 38
+  "AccidentRate": 81.76
  },
  {
   "Name": "Кировский",
-  "AccidentRate": 79.68
+  "AccidentRate": 151.15
  },
  {
   "Name": "Приморский",
-  "AccidentRate": 100.87
+  "AccidentRate": 196.82
  },
  {
   "Name": "Выборгский",
-  "AccidentRate": 115.27
+  "AccidentRate": 260.73
  },
  {
   "Name": "Калининский",
-  "AccidentRate": 99.28
+  "AccidentRate": 218.61
  },
  {
   "Name": "Невский",
-  "AccidentRate": 109.36
+  "AccidentRate": 235.98
  },
  {
   "Name": "Московский",
-  "AccidentRate": 103.12
+  "AccidentRate": 223.16
  },
  {
   "Name": "Курортный",
-  "AccidentRate": 37.18
+  "AccidentRate": 77.76
  },
  {
   "Name": "Красногвардейский",
-  "AccidentRate": 74.8
+  "AccidentRate": 175.46
  },
  {
   "Name": "Фрунзенский",
-  "AccidentRate": 68.94
+  "AccidentRate": 142.38
  },
  {
   "Name": "Красносельский",
-  "AccidentRate": 84.11
+  "AccidentRate": 166.97
  },
  {
   "Name": "Петродворцовый",
-  "AccidentRate": 22.89
+  "AccidentRate": 46.82
  },
  {
   "Name": "Адмиралтейский",
-  "AccidentRate": 50.27
+  "AccidentRate": 108.37
  },
  {
   "Name": "Колпинский",
-  "AccidentRate": 32.91
+  "AccidentRate": 72.12
  },
  {
   "Name": "Кронштадтский",
-  "AccidentRate": 6.95
+  "AccidentRate": 17.03
  }
 ]

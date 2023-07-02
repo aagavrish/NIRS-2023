@@ -1,0 +1,18 @@
+[
+ {
+  "Name": "Нахимовский",
+  "AccidentRate": 50.82
+ },
+ {
+  "Name": "Балаклавский",
+  "AccidentRate": 53.01
+ },
+ {
+  "Name": "Ленинский",
+  "AccidentRate": 63.74
+ },
+ {
+  "Name": "Гагаринский",
+  "AccidentRate": 74.31
+ }
+]
