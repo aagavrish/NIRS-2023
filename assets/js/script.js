@@ -1,3 +1,11 @@
+document.getElementById("inputs")
+.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("Forebutton").click();
+    }
+});
+
 let button = document.querySelector(".inputblock > button");
 if (button) {
     button.onclick = function (e) {

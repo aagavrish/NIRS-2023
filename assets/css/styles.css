@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 body {
@@ -64,6 +65,7 @@ body {
     outline: none;
     margin: 7px;
     text-align: center;
+    font-size: 14px;
 }
 
 .inputblock > select {

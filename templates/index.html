@@ -7,7 +7,7 @@
     </head>
     <body>
         <div class="form">
-            <div class ="inputblock">
+            <div id="inputs" class ="inputblock">
                 <select id="Region" name="Region">
                     <option disabled selected value="">Выберите регион</option>
                     <option value="Москва">Москва</option>
@@ -15,7 +15,7 @@
                     <option value="Санкт-Петербург">Санкт-Петербург</option>
                 </select>
                 <input name="District" placeholder ="Введите район">
-                <button>Рассчитать</button>
+                <button id="Forebutton">Рассчитать</button>
             </div>
             <div class = "infoblock">
                 <p id = "infotext" class="infotext">Регион: {{.Region}}
